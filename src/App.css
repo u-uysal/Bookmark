@@ -20,8 +20,47 @@ body {
   border: none;
   border-radius: 20px;
   background-color: rebeccapurple;
+  font-size: calc(12px + 2vw);
   text-transform: uppercase;
 }
 .modal-button:hover {
   filter: brightness(110%);
+}
+.modal-button:focus {
+  outline: none;
+}
+.bookmark-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.bookmark-item {
+  padding: 20px;
+  background-color: rgba(38, 29, 49, 0.6);
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.bookmark-item a {
+  font-size: calc(12px + 1.3vw);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+a:link,
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+a:hover,
+a:active {
+  text-decoration: underline;
+  color: rgb(38, 29, 49);
+}
+.fa-trash-alt {
+  color: white;
+  margin-left: 20%;
+}
+.fa-trash-alt:hover {
+  cursor: pointer;
 }
