@@ -5,6 +5,8 @@ export default function Modal() {
     bookmarkName: "",
     bookmarkUrl: "",
   });
+  const [displayArray, setDisplayArray] = useState([]);
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setQuery((prevState) => ({
@@ -12,6 +14,21 @@ export default function Modal() {
       [name]: value,
     }));
   };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const bookmark = {
+      name: query.bookmarkName,
+      url: query.bookmarkUrl,
+    };
+
+    setQuery({
+      bookmarkUrl: "",
+      bookmarkName: "",
+    });
+    setDisplayArray((oldArray) => [...oldArray, bookmark]);
+  };
+
   return (
     <>
       <button
@@ -33,9 +50,9 @@ export default function Modal() {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-body">
-              <form>
+              <form onSubmit={handleSubmit} id="bookmark-form">
                 <div className="form-group">
-                  <label for="InputText">Bookmark Name</label>
+                  <label htmlFor="InputText">Bookmark Name</label>
                   <input
                     type="text"
                     name="bookmarkName"
@@ -48,7 +65,7 @@ export default function Modal() {
                   />
                 </div>
                 <div className="form-group">
-                  <label for="InputUrl">Website Url</label>
+                  <label htmlFor="InputUrl">Website Url</label>
                   <input
                     type="text"
                     name="bookmarkUrl"
@@ -60,7 +77,11 @@ export default function Modal() {
                   />
                 </div>
 
-                <button type="submit" className="btn btn-primary">
+                <button
+                  type="submit"
+                  className="btn btn-primary"
+                  onClick={handleSubmit}
+                >
                   Submit
                 </button>
                 <button
@@ -68,12 +89,20 @@ export default function Modal() {
                   className="btn btn-danger ml-2"
                   data-dismiss="modal"
                 >
-                  {query.bookmarkName},{query.bookmarkUrl}
+                  Close
                 </button>
               </form>
             </div>
           </div>
         </div>
+      </div>
+      <div className="bookmark-container">
+        {displayArray.map((item) => (
+          <div className="bookmark-item">
+            <a href={item.url}>{item.name}</a>
+            <i className="far fa-trash-alt"></i>
+          </div>
+        ))}
       </div>
     </>
   );
