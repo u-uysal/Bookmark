@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Modal() {
+  const [query, setQuery] = useState({
+    bookmarkName: "",
+    bookmarkUrl: "",
+  });
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setQuery((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
   return (
     <>
       <button
@@ -12,7 +23,13 @@ export default function Modal() {
         Add Bookmark
       </button>
 
-      <div className="modal" id="myModal">
+      <div
+        data-aos="zoom-in"
+        data-aos-delay="50"
+        data-aos-duration="1000"
+        className="modal"
+        id="myModal"
+      >
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-body">
@@ -21,6 +38,9 @@ export default function Modal() {
                   <label for="InputText">Bookmark Name</label>
                   <input
                     type="text"
+                    name="bookmarkName"
+                    value={query.bookmarkName}
+                    onChange={handleChange}
                     className="form-control"
                     id="InputText"
                     aria-describedby="TextHelp"
@@ -28,12 +48,15 @@ export default function Modal() {
                   />
                 </div>
                 <div className="form-group">
-                  <label for="InputUrl">Bookmark Url</label>
+                  <label for="InputUrl">Website Url</label>
                   <input
                     type="text"
+                    name="bookmarkUrl"
+                    value={query.bookmarkUrl}
+                    onChange={handleChange}
                     className="form-control"
                     id="InputUrl"
-                    placeholder="Enter bookmark url"
+                    placeholder="Enter website url"
                   />
                 </div>
 
@@ -45,7 +68,7 @@ export default function Modal() {
                   className="btn btn-danger ml-2"
                   data-dismiss="modal"
                 >
-                  Close
+                  {query.bookmarkName},{query.bookmarkUrl}
                 </button>
               </form>
             </div>
