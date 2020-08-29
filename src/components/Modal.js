@@ -15,23 +15,39 @@ export default function Modal() {
       <div className="modal" id="myModal">
         <div className="modal-dialog">
           <div className="modal-content">
-            <div className="modal-header">
-              <h4 className="modal-title">Modal Heading</h4>
-              <button type="button" className="close" data-dismiss="modal">
-                &times;
-              </button>
-            </div>
+            <div className="modal-body">
+              <form>
+                <div className="form-group">
+                  <label for="InputText">Bookmark Name</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="InputText"
+                    aria-describedby="TextHelp"
+                    placeholder="Enter bookmark name"
+                  />
+                </div>
+                <div className="form-group">
+                  <label for="InputUrl">Bookmark Url</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="InputUrl"
+                    placeholder="Enter bookmark url"
+                  />
+                </div>
 
-            <div className="modal-body">Modal body..</div>
-
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-danger"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
+                <button type="submit" className="btn btn-primary">
+                  Submit
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-danger ml-2"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </form>
             </div>
           </div>
         </div>
