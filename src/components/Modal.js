@@ -5,7 +5,6 @@ export default function Modal() {
     bookmarkName: "",
     bookmarkUrl: "",
   });
-  const [displayArray, setDisplayArray] = useState([]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -14,20 +13,29 @@ export default function Modal() {
       [name]: value,
     }));
   };
-
+  /*   let a = JSON.parse(localStorage.getItem("bookmarks"));
+  console.log(a.concat(["bbb"])); */
   const handleSubmit = (event) => {
-    event.preventDefault();
-    const bookmark = {
-      name: query.bookmarkName,
-      url: query.bookmarkUrl,
-    };
-
+    if (localStorage.getItem("bookmarks") == undefined) {
+      let concatArray = [];
+      concatArray.push(query);
+      localStorage.setItem("bookmarks", JSON.stringify(concatArray));
+    } else {
+      let storagedArray = JSON.parse(localStorage.getItem("bookmarks"));
+      console.log();
+      localStorage.setItem(
+        "bookmarks",
+        JSON.stringify(storagedArray.concat([query]))
+      );
+    }
     setQuery({
-      bookmarkUrl: "",
       bookmarkName: "",
+      bookmarkUrl: "",
     });
-    setDisplayArray((oldArray) => [...oldArray, bookmark]);
+    event.preventDefault();
   };
+  let displayArray = JSON.parse(localStorage.getItem("bookmarks"));
+  console.log(displayArray);
 
   return (
     <>
@@ -97,10 +105,10 @@ export default function Modal() {
         </div>
       </div>
       <div className="bookmark-container">
-        {displayArray.map((item) => (
-          <div className="bookmark-item">
-            <a href={item.url}>{item.name}</a>
-            <i className="far fa-trash-alt"></i>
+        {displayArray.map((item, i) => (
+          <div key={i} className="bookmark-item">
+            <a href={item.bookmarkUrl}>{item.bookmarkName}</a>
+            <i onClick className="far fa-trash-alt"></i>
           </div>
         ))}
       </div>
