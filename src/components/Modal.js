@@ -23,7 +23,7 @@ export default function Modal() {
       localStorage.setItem("bookmarks", JSON.stringify(concatArray));
     } else {
       let storagedArray = JSON.parse(localStorage.getItem("bookmarks"));
-      console.log();
+
       localStorage.setItem(
         "bookmarks",
         JSON.stringify(storagedArray.concat([query]))
@@ -40,8 +40,16 @@ export default function Modal() {
 
   /* get item from localstorage */
   let displayArray = JSON.parse(localStorage.getItem("bookmarks"));
+
   console.log(displayArray);
 
+  const deleteItem = (e) => {
+    let getId = e.target.parentNode.id;
+    let restArray = displayArray.filter((item) => item.bookmarkName != getId);
+
+    localStorage.setItem("bookmarks", JSON.stringify(restArray));
+    window.history.go(0);
+  };
   return (
     <>
       <button
@@ -94,6 +102,7 @@ export default function Modal() {
                   type="submit"
                   className="btn btn-primary"
                   onClick={handleSubmit}
+                  data-dismiss="modal"
                 >
                   Submit
                 </button>
@@ -110,13 +119,17 @@ export default function Modal() {
         </div>
       </div>
       <div className="bookmark-container">
-        {displayArray === null ? (
+        {displayArray === null || displayArray.length == 0 ? (
           <p>Please add bookmarks</p>
         ) : (
           displayArray.map((item, i) => (
-            <div key={i} className="bookmark-item">
+            <div key={i} id={item.bookmarkName} className="bookmark-item">
               <a href={item.bookmarkUrl}>{item.bookmarkName}</a>
-              <i className="far fa-trash-alt"></i>
+              <i
+                value={item.bookmarkName}
+                onClick={deleteItem}
+                className="far fa-trash-alt"
+              ></i>
             </div>
           ))
         )}
