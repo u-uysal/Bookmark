@@ -1,68 +1,79 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# :crystal_ball: Bookmark App
 
-## Available Scripts
+> This repository is created by using HTML5, CSS3, Bootstrap and ReactJS .
+> One of the main outcomes of this project is figuring out how to create, explore and run a web application in a development environment, then deploying it to the production environment in accordance with **Test-Driven-Development(TDD)** approach.
 
-In the project directory, you can run:
+>The purpose of this project is to enable us to examine the public links we encounter while surfing the internet when we are available.
 
-### `yarn start`
+---
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Index
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- [Learning Objectives and Supported Skills](#learning-objectives-and-supported-skills)
+- [Installation](#installation)
+- [Technology-Tool-Stack](#technology-tool-stack)
+- [Contributing](#contributing)
+- [License](#credits)
 
-### `yarn test`
+---
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Learning Objectives and Supported Skills
 
-### `yarn build`
+- Creating a user friendly React Application (using Functional/Class Bases Components and Hooks)
+- Building wireframes, mocks and prototype of pages
+- Setting up a professional folder structure
+- Understanding Test-Driven-Development(TDD)
+- Understanding LocalStorage
+- Implementing Continuous Integration and Continuous Deployment (CI/CD)
+- Setting up API endpoints
+- Debugging ReactJs code in IDE
+- Exploring and understanding DOM
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `yarn eject`
+- You should have [npm](https://nodejs.org/en/download/) installed on your machine.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Clone the repository:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+git clone https://github.com/u-uysal/Bookmark.git
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Install dependancies:
 
-## Learn More
+```
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Run the app in:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+npm start
+```
 
-### Code Splitting
+- Open [http://localhost:3000](http://localhost:3000) to view the page in your browser.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Technology-Tool-Stack
 
-### Analyzing the Bundle Size
+- **React** : React. js is an open-source JavaScript library that is used for building user interfaces specifically for single-page applications. It's used for handling the view layer for web and mobile apps. React also allows us to create reusable UI components.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- **Bootstrap** : Bootstrap is a potent front-end framework used to create modern websites and web apps. It's open-source and free to use, yet features numerous HTML and CSS templates for UI interface elements such as buttons and forms. Bootstrap also supports JavaScript extensions.
 
-### Making a Progressive Web App
+- **LocalStorage** :The read-only localStorage property allows you to access a Storage object for the Document's origin; the stored data is saved across browser sessions. localStorage is similar to sessionStorage, except that while data stored in localStorage has no expiration time, data stored in sessionStorage gets cleared when the page session ends — that is, when the page is closed. (Data in a localStorage object created in a "private browsing" or "incognito" session is cleared when the last "private" tab is closed.)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+---
 
-### Advanced Configuration
+## Contributing
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+- You are more than welcomed to contribute in this project by opening an issue or sending a pull request.
 
-### Deployment
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+## License
 
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This project is licensed under the MIT License - see the LICENSE.md file for details
