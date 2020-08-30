@@ -105,12 +105,16 @@ export default function Modal() {
         </div>
       </div>
       <div className="bookmark-container">
-        {displayArray.map((item, i) => (
-          <div key={i} className="bookmark-item">
-            <a href={item.bookmarkUrl}>{item.bookmarkName}</a>
-            <i onClick className="far fa-trash-alt"></i>
-          </div>
-        ))}
+        {displayArray === null ? (
+          <p>Please add bookmarks</p>
+        ) : (
+          displayArray.map((item, i) => (
+            <div key={i} className="bookmark-item">
+              <a href={item.bookmarkUrl}>{item.bookmarkName}</a>
+              <i className="far fa-trash-alt"></i>
+            </div>
+          ))
+        )}
       </div>
     </>
   );
