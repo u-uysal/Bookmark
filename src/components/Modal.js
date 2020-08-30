@@ -13,9 +13,10 @@ export default function Modal() {
       [name]: value,
     }));
   };
-  /*   let a = JSON.parse(localStorage.getItem("bookmarks"));
-  console.log(a.concat(["bbb"])); */
+
   const handleSubmit = (event) => {
+    /* check if localstorage has a item or not */
+
     if (localStorage.getItem("bookmarks") == undefined) {
       let concatArray = [];
       concatArray.push(query);
@@ -28,12 +29,16 @@ export default function Modal() {
         JSON.stringify(storagedArray.concat([query]))
       );
     }
+
+    /* to show empty input field after submitting */
     setQuery({
       bookmarkName: "",
       bookmarkUrl: "",
     });
     event.preventDefault();
   };
+
+  /* get item from localstorage */
   let displayArray = JSON.parse(localStorage.getItem("bookmarks"));
   console.log(displayArray);
 
