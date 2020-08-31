@@ -43,9 +43,9 @@ body {
   align-items: center;
 }
 .bookmark-item a {
-  font-size: calc(12px + 1.3vw);
+  font-size: calc(12px + 1vw);
   font-weight: bold;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 a:link,
 a:visited {
@@ -63,4 +63,12 @@ a:active {
 }
 .fa-trash-alt:hover {
   cursor: pointer;
+  color: red;
+}
+.no-items {
+  background-color: rgba(38, 29, 49, 0.6);
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  font-weight: bold;
 }

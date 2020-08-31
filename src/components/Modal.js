@@ -120,11 +120,15 @@ export default function Modal() {
       </div>
       <div className="bookmark-container">
         {displayArray === null || displayArray.length == 0 ? (
-          <p>Please add bookmarks</p>
+          <p className="no-items">
+            There is nothing to show.Please add bookmarks
+          </p>
         ) : (
           displayArray.map((item, i) => (
             <div key={i} id={item.bookmarkName} className="bookmark-item">
-              <a href={item.bookmarkUrl}>{item.bookmarkName}</a>
+              <a target="_blank" href={item.bookmarkUrl}>
+                {item.bookmarkName}
+              </a>
               <i
                 value={item.bookmarkName}
                 onClick={deleteItem}
